@@ -1,0 +1,14 @@
+[theme]
+# Lock the primary canvas background color
+backgroundColor = "#E6E6FA"          # This matches your light purple tone in the screenshot
+
+# Lock the secondary structural layout surfaces (cards, sidebars)
+secondaryBackgroundColor = "#FFFFFF" # Keeps your subject card crisp white
+
+# CRITICAL: Force text to stay dark/black so it never flips to white accidentally
+textColor = "#111111"                
+primaryColor = "#E0338A"             # Matches your pink/magenta accent buttons
+
+# This forces the app to load your settings instead of looking at system preferences
+[server]
+runOnSave = true
