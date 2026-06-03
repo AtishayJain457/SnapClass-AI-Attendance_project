@@ -48,10 +48,10 @@ def create_subject(subject_code, name, section, teacher_id):
     response = supabase.table("subjects").insert(data).execute()
     return response.data
 
+# Look for your exact get_teacher_subjects execution mapping around line 53:
 def get_teacher_subjects(teacher_id):
     response = supabase.table('subjects').select("*, subject_students(count), attendance_logs(timestamp)").eq("teacher_id", teacher_id).execute()
     subjects = response.data
-
 
     for sub in subjects:
         sub['total_students'] = sub.get("subject_students", [{}])[0].get('count', 0) if sub.get('subject_students') else 0
@@ -59,8 +59,8 @@ def get_teacher_subjects(teacher_id):
         unique_sessions = len(set(log['timestamp'] for log in attendance))
         sub['total_classes'] = unique_sessions
 
-
-        sub.pop('subject_student', None)
+        # FIXED: Updated 'subject_student' to correctly match the plural 'subject_students' reference key
+        sub.pop('subject_students', None)
         sub.pop('attendance_logs', None)
 
     return subjects
