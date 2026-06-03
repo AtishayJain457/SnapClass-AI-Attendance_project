@@ -1,0 +1,16 @@
+# Local Environment Variables and System Configurations
+.env
+.vscode/
+.DS_Store
+
+# Python Compilation and Caching Packages
+*.pyc
+__pycache__/
+dist/
+
+# Virtual Development Dependencies
+venv/
+
+# Streamlit Production Security Enforcement
+# (This keeps your database keys private but allows config.toml to pass through)
+.streamlit/secrets.toml

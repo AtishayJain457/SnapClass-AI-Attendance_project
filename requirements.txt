@@ -1,0 +1,25 @@
+streamlit
+
+# Utilities
+numpy
+pandas
+
+# Face-Recognition
+
+scikit-learn 
+dlib-bin
+
+
+git+https://github.com/ageitgey/face_recognition_models
+setuptools<70.0.0
+
+supabase - it provides database
+bcrypt - it gives meothods for hashing - hashing helps in to encode the  password 
+
+segno - helps in to make qr code - just we have to give url
+
+pillow - hepls in to image preprocessing , deals with images , resize , scale
+
+
+librosa # audio files ko edit karna  , cut in segments
+resemblyzer # segmenting
