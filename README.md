@@ -267,7 +267,7 @@ AI/ML Engineer | Machine Learning Enthusiast | Data Science Learner
 
 🔗 LinkedIn: https://linkedin.com/in/atishay457
 
-💻 GitHub: https://github.com/AtishayJain458
+💻 GitHub: https://github.com/AtishayJain457
 
 ---
 
