@@ -64,19 +64,25 @@ def student_dashboard():
         sub = sub_node['subjects']
         sid = sub['subject_id']
 
-
-        stats = stats_map.get(sid,{"total":0, "attended": 0} )
-        def unenroll_button():
-                if st.button("Unenroll from tihs course", type='tertiary', width='stretch', icon=':material/delete_forever:'):
-                    unenroll_student_to_subject(student_id, sid)
-                    st.toast(f"Unenrolled from {sub['name']} successfully!")
-                    st.rerun()
+        stats = stats_map.get(sid, {"total": 0, "attended": 0})
+        
+        # FIXED: Pass variables as default parameters and added a unique key string
+        def unenroll_button(subject_id=sid, subject_name=sub['name']):
+            if st.button(
+                "Unenroll from this course", 
+                type='tertiary', 
+                width='stretch', 
+                icon=':material/delete_forever:',
+                key=f"unenroll_btn_{subject_id}"  # Resolves the duplicate element crash
+            ):
+                unenroll_student_to_subject(student_id, subject_id)
+                st.toast(f"Unenrolled from {subject_name} successfully!")
+                st.rerun()
 
         with cols[i % 2]:
-
             subject_card(
                 name = sub['name'],
-                code =sub['subject_code'],
+                code = sub['subject_code'],
                 section = sub['section'],
                 stats = [
                     ('📅', 'Total', stats['total']),
@@ -84,6 +90,7 @@ def student_dashboard():
                 ],
                 footer_callback=unenroll_button
             )
+            
     footer_dashboard()
 
 
