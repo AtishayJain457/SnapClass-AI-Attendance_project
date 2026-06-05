@@ -2,6 +2,7 @@ import streamlit as st
 import segno
 import io
 
+
 @st.dialog("Share Class Link")
 def share_subject_dialog(subject_name, subject_code):
     # FIXED: Added https:// and corrected the domain spelling to match your live 'mainn' app link
